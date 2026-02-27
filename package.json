@@ -10,7 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@finggujadhav/compiler": "^0.9.10",
+    "@finggujadhav/compiler": "^0.9.13",
     "@finggujadhav/core": "^0.9.7",
     "@finggujadhav/react": "^0.9.7",
     "react": "^19.2.0",
