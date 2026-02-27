@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 // @ts-ignore
-import { fingguCompiler } from '@finggujadhav/compiler'
+import fingguCompiler from '@finggujadhav/compiler'
 
 // https://vite.dev/config/
 export default defineConfig({
