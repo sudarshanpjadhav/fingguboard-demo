@@ -1,4 +1,4 @@
-@import '@finggujadhav/core/index.css';
+@import "@finggujadhav/core";
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
