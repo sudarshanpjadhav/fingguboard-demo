@@ -1,225 +1,284 @@
 @import "@finggujadhav/core";
 
 :root {
-  /* Spacing Scale */
-  --ff-space-xs: 0.25rem;
-  --ff-space-sm: 0.5rem;
-  --ff-space-md: 1rem;
-  --ff-space-lg: 1.5rem;
-  --ff-space-xl: 2rem;
-  --ff-space-2xl: 3rem;
+  /* Strict 8px spacing system */
+  --ff-s-1: 8px;
+  --ff-s-2: 16px;
+  --ff-s-3: 24px;
+  --ff-s-4: 32px;
 
-  /* Premium Palette Overrides */
-  --ff-primary: #3b82f6;
-  --ff-primary-glow: rgba(59, 130, 246, 0.15);
-  --ff-surface: #0a0a0a;
-  --ff-surface-raised: #141414;
-  --ff-surface-accent: #1e1e1e;
-  --ff-border: rgba(255, 255, 255, 0.08);
-  --ff-text: #f3f4f6;
-  --ff-text-muted: #9ca3af;
+  /* High Contrast Deep Graphite System */
+  --ff-bg-base: #0f1117;
+  --ff-bg-sub: #161a22;
+  --ff-bg-active: #1c212b;
 
-  /* Advanced Hierarchy */
-  --ff-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --ff-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --ff-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  --ff-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+  --ff-border: #2d333b;
+  --ff-border-focus: #444c56;
 
-  /* Status Colors */
-  --ff-success: #10b981;
-  --ff-success-glow: rgba(16, 185, 129, 0.1);
-  --ff-danger: #ef4444;
-  --ff-danger-glow: rgba(239, 68, 68, 0.1);
-  --ff-warning: #f59e0b;
-  --ff-warning-glow: rgba(245, 158, 11, 0.1);
+  --ff-text-main: #ffffff;
+  --ff-text-dim: #8b949e;
 
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  background-color: var(--ff-surface);
-  color: var(--ff-text);
-  line-height: 1.5;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  --ff-emerald: #00e676;
+  --ff-red: #ff3b3b;
+  --ff-amber: #f2994a;
+
+  font-family: 'JetBrains Mono', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  background-color: var(--ff-bg-base);
+  color: var(--ff-text-main);
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
 }
 
-.ff-text-success {
-  color: var(--ff-success);
-}
-
-.ff-bg-success-glow {
-  background: var(--ff-success-glow);
-}
-
-.ff-text-danger {
-  color: var(--ff-danger);
-}
-
-.ff-bg-danger-glow {
-  background: var(--ff-danger-glow);
-}
-
-.ff-text-warning {
-  color: var(--ff-warning);
-}
-
-.ff-bg-warning-glow {
-  background: var(--ff-warning-glow);
-}
-
-/* Root Reset & Base Styles */
+/* Global Strict Layout */
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-#root {
-  width: 100%;
-}
-
-/* Micro-interactions & Animations */
-@keyframes ff-fade-in-up {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes ff-glow {
-  0% {
-    box-shadow: 0 0 5px var(--ff-primary-glow);
-  }
-
-  50% {
-    box-shadow: 0 0 20px var(--ff-primary-glow);
-  }
-
-  100% {
-    box-shadow: 0 0 5px var(--ff-primary-glow);
-  }
-}
-
-.ff-animate-in {
-  animation: ff-fade-in-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.ff-glass {
-  background: rgba(20, 20, 20, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--ff-border);
-}
-
-.ff-hover-lift {
-  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease;
-}
-
-.ff-hover-lift:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--ff-shadow-xl);
-  border-color: var(--ff-primary);
-}
-
-/* Hero System Bar Styling */
-.ff-system-bar {
-  height: 32px;
-  background: #000;
-  font-size: 11px;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: var(--ff-text-muted);
-}
-
-/* KPI Card Enhancements */
-.ff-kpi-card {
-  position: relative;
+body {
+  height: 100vh;
   overflow: hidden;
 }
 
-.ff-kpi-card::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, var(--ff-primary), transparent);
-  opacity: 0;
-  transition: opacity 0.3s ease;
+#root {
+  height: 100%;
 }
 
-.ff-kpi-card:hover::after {
-  opacity: 1;
+/* 2-Column Observability Console Layout */
+.ff-console-root {
+  display: grid;
+  grid-template-rows: 40px 1fr;
+  height: 100vh;
 }
 
-/* Timeline Components */
-.ff-timeline {
-  position: relative;
-  padding-left: 24px;
+.ff-console-header {
+  grid-row: 1;
+  background: var(--ff-bg-sub);
+  border-bottom: 1px solid var(--ff-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--ff-s-2);
 }
 
-.ff-timeline::before {
-  content: '';
-  position: absolute;
-  left: 7px;
-  top: 0;
-  bottom: 0;
-  width: 1px;
+.ff-console-body {
+  grid-row: 2;
+  display: grid;
+  grid-template-columns: 7fr 3fr;
+  /* 70% / 30% */
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Panels */
+.ff-panel-main {
+  border-right: 1px solid var(--ff-border);
+  display: flex;
+  flex-direction: column;
+  background: var(--ff-bg-base);
+  overflow-y: auto;
+}
+
+.ff-panel-side {
+  background: var(--ff-bg-sub);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+/* Module System */
+.ff-module {
+  border-bottom: 1px solid var(--ff-border);
+  width: 100%;
+}
+
+.ff-module-header {
+  background: var(--ff-bg-sub);
+  padding: 8px 16px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--ff-text-dim);
+  border-bottom: 1px solid var(--ff-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ff-module-content {
+  padding: 16px;
+}
+
+/* Data Layouts */
+.ff-grid-dense {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1px;
   background: var(--ff-border);
-}
-
-.ff-timeline-item {
-  position: relative;
-  padding-bottom: 24px;
-}
-
-.ff-timeline-dot {
-  position: absolute;
-  left: -21px;
-  top: 4px;
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: var(--ff-border);
-  border: 4px solid var(--ff-surface);
-}
-
-.ff-timeline-dot.active {
-  background: var(--ff-primary);
-}
-
-/* Playground Styles */
-.ff-token-swatch {
-  width: 24px;
-  height: 24px;
-  border-radius: 4px;
   border: 1px solid var(--ff-border);
 }
 
-/* Custom Scrollbar for Premium Feel */
+.ff-grid-item {
+  background: var(--ff-bg-base);
+  padding: 12px;
+}
+
+.ff-label-small {
+  font-size: 10px;
+  color: var(--ff-text-dim);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.ff-value-large {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--ff-text-main);
+}
+
+/* Status system */
+.ff-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.ff-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 1px;
+}
+
+.ff-dot-emerald {
+  background: var(--ff-emerald);
+  box-shadow: 0 0 8px var(--ff-emerald);
+}
+
+.ff-dot-red {
+  background: var(--ff-red);
+  box-shadow: 0 0 8px var(--ff-red);
+}
+
+.ff-dot-amber {
+  background: var(--ff-amber);
+}
+
+/* Buttons & Controls */
+.ff-btn-console {
+  background: var(--ff-bg-active);
+  border: 1px solid var(--ff-border);
+  color: var(--ff-text-main);
+  padding: 4px 10px;
+  font-size: 11px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.1s;
+}
+
+.ff-btn-console:hover {
+  border-color: var(--ff-border-focus);
+}
+
+.ff-btn-console.ff-btn-primary {
+  border-color: var(--ff-emerald);
+  color: var(--ff-emerald);
+}
+
+.ff-btn-console.ff-btn-danger {
+  border-color: var(--ff-red);
+  color: var(--ff-red);
+}
+
+/* Tables / Logs */
+.ff-log-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.ff-log-table th {
+  text-align: left;
+  padding: 8px;
+  background: var(--ff-bg-sub);
+  color: var(--ff-text-dim);
+  border-bottom: 1px solid var(--ff-border);
+}
+
+.ff-log-table td {
+  padding: 8px;
+  border-bottom: 1px solid var(--ff-border);
+}
+
+.ff-log-row:hover {
+  background: var(--ff-bg-sub);
+}
+
+/* Violation Overlay */
+.ff-alert-strip {
+  background: var(--ff-red);
+  color: #fff;
+  padding: 6px 16px;
+  font-size: 11px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--ff-surface);
+  background: var(--ff-bg-base);
 }
 
 ::-webkit-scrollbar-thumb {
   background: var(--ff-border);
-  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--ff-text-muted);
+  background: var(--ff-border-focus);
 }
 
-body {
-  margin: 0;
-  overflow-x: hidden;
+/* Utilities */
+.ff-flex {
+  display: flex;
 }
 
-#root {
+.ff-flex-col {
+  flex-direction: column;
+}
+
+.ff-items-center {
+  align-items: center;
+}
+
+.ff-justify-between {
+  justify-content: space-between;
+}
+
+.ff-gap-1 {
+  gap: 8px;
+}
+
+.ff-gap-2 {
+  gap: 16px;
+}
+
+.ff-p-2 {
+  padding: 16px;
+}
+
+.ff-w-full {
   width: 100%;
+}
+
+.ff-h-full {
+  height: 100%;
 }
